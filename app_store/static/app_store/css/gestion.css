@@ -295,3 +295,12 @@ ul.errorlist{
   padding: 1px 0px;
   text-align: center;
 }
+
+.sesion{
+  text-decoration: none;
+  color: white;
+}
+
+.sesion__ul{
+  list-style: none;
+}

@@ -55,20 +55,22 @@
           <li class="nav-item {% if "/app_blog/" in request.path %} active {% endif %} px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{% url 'app_blog:Blog' %}">Blog</a>
           </li>
-          <li class="nav-item {% if "/app_register/" in request.path %} active {% endif %} px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'app_register:Register' %}">Registro</a>
-          </li>
          
         </ul>
       </div>
+      <div class='sesion'>
       {% if request.user.is_authenticated %}
-        <ul> 
-          <li> Hola {{user.username|capfirst}} </li>
-          <li><a href="{% url 'app_store:Logout' %}"> Cerrar Sesión </a></li>
+        <ul class='sesion__ul'> 
+          <li class= 'sesion__saludo'> Hola {{user.username|capfirst}} </li>
+          <li ><a class='sesion__item' href="{% url 'app_store:Logout' %}" style='color:white; list-style: none;'> Cerrar Sesión </a></li>
         </ul>
         {% else %}
-        <a href="{% url 'app_store:Home' %}"> Iniciar Sesión </a>
+        <ul class='sesion__ul'> 
+        <li><a  class='sesion__item' href="{% url 'app_store:Home' %}" style='color:white;'>Iniciar Sesión</a></li>
+        <li><a class='sesion__item' href="{% url 'app_register:Register' %}" style='color:white;'>Aún no tienes una cuenta?</a></li>
+        </ul>
       {% endif %}
+      </div>
     </div>
   </nav>
 
@@ -78,7 +80,7 @@
                     <!-- Contenido cambiante -->
 
 {% endblock content %}
-<p style='color: white;'> {{request.session}} </p>
+
     <!-- Footer -->
     <footer class="footer text-faded text-center py-5">
       <div class="container">
