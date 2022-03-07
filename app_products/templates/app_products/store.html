@@ -1,0 +1,32 @@
+{% extends 'app_store/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="container">
+    <div style='float:right; color: white;'>
+        {% include 'cart/widget.html' %}
+    </div>
+
+    <div class='row'>
+{% for product in products %}
+    <div class='col-md-3'>
+    <div class='card' style='width:100%; margin:5px 5px; height: 300px;'>
+        <img src="{{product.image.url}}" alt="Una foto del producto" class= 'card-img-top' style='height: 150px'>
+        <div class='card-body' style='text-align:center;'>
+            <h6 class='card-title'>{{producct.title}}</h6>
+            <p class='card-text' style='align-self: flex-end;'>{{product.price}}&nbsp;U$D</p>
+        </div>
+        <!--Botón de agregar al carrito-->
+        <div class='card-footer text-center'>
+            <a href="{% url 'shopping_cart:add' product.id %}" class='btn btn-success'>ADD TO CARD</a>
+        </div>
+    </div> <!--Acá termina la tarjeta de los productos-->
+    </div>
+{% endfor %}
+    </div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends 'app_store/base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class='contentForm'>
+    {% if 'enviado' in request.GET %}
+        <p style= 'color: white;'>Información enviada correctamente. Lo contactaremos a la brevedad</p>
+    {% endif %}
+
+    {% if 'error' in requesto.GET %}
+    <p style= 'color: white;'> No se logró enviar la información. Inténtelo nuevamente más tarde</p>
+    {% endif %}
+        <form action="" method='POST'>
+        {% csrf_token %}
+        <table style= 'color: white; margin: 20px auto;'>
+            {{myform.as_table}}
+        </table>
+        <input type="submit" value= 'submit' style='width: 200px;'>
+    </form>
+    </section>
+    
+
+{% endblock content %}
