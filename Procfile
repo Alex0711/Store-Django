@@ -1,1 +1,1 @@
-web: gunicorn Minimarket.wsgi
+web: gunicorn store.wsgi --log-file -
